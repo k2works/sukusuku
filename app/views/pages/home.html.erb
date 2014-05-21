@@ -1,0 +1,8 @@
+<% title("Home Page") %>
+<div class="container">
+<ul>
+  <li><%= link_to "ToDo一覧", todos_path %></li>
+  <li><%= link_to('未完了', manage_index_path) %></li>
+  <li><%= link_to('完了', finished_manage_index_path) %></li>
+</ul>
+</div>

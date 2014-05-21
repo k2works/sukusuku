@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th><%= t('activerecord.attributes.todo.due') %></th>
+      <th><%= t('activerecord.attributes.todo.priority') %></th>
+      <th><%= t('activerecord.attributes.todo.title') %></th>
+      <th><%= t('activerecord.attributes.todo.contents') %></th>
+      <th><%= t('activerecord.attributes.todo.status') %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+      <tr>
+        <td><%= link_to(todo.id,manage_path(todo)) %></td>
+        <td><%= todo.due %></td>
+        <td><%= todo_priority(todo) %></td>
+        <td><%= todo.title %></td>
+        <td><%= todo.contents %></td>
+        <td><%= todo_status(todo) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

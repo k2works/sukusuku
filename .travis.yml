@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - "2.0.0"
+script:
+  - bundle exec rake db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec
+  - bundle exec cucumber
+addons:
+ code_climate:
+   repo_token: e1908e236f2f8621acf4de30382ae53eeb4821a1a9b2996ec0bf05dddc018f53

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t('activerecord.attributes.todo.title') %>:</strong>
+  <%= @todo.title %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.todo.contents') %>:</strong>
+  <%= @todo.contents %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.todo.due') %>:</strong>
+  <%= @todo.due %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.todo.priority') %>:</strong>
+  <%= todo_priority @todo %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.todo.status') %>:</strong>
+  <%= todo_status @todo %>
+</p>
+
+<% if @todo.status.to_i == 0 %>
+  <%= form_for(@todo, url: manage_path(@todo)) do |f| %>
+    <%= f.hidden_field :status, value:1 %>
+    <%= f.submit '完了' %>
+  <% end %>
+<% else %>
+  <%= form_for(@todo, url: manage_path(@todo)) do |f| %>
+    <%= f.hidden_field :status, value:0 %>
+    <%= f.submit '未完了' %>
+  <% end %>
+<% end %>
+
+<%= link_to '戻る', manage_index_path %>
